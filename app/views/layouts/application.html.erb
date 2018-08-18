@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Cooking</title>
+    <%= csrf_meta_tags %>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body class="nav-md">
+    <div class="container body">
+      <div class="main_container">
+        <% if admin_signed_in? %>
+          <%= render partial: 'layouts/admin_sidebar'%>
+          <%= render partial: 'layouts/admin_top_navigation'%>
+          <%= yield %>
+          <%= render partial: 'layouts/admin_footer' %>
+        <% end %>
+        <div class="panel panel-default">
+        <%= yield %>
+      </div>  
+
+
+        
+      </div>
+    </div>
+  </body>
+</html>
